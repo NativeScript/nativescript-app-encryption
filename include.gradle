@@ -14,85 +14,6 @@ task appProtectionInclude (dependsOn: "copyMetadata")  << {
             commandLine "node", "../../node_modules/nativescript-app-protection/encrypt-file.js", encryptionKey , file.getAbsolutePath(),  file.getAbsolutePath()
         }
     } 
-    
-    
-    //new File("$rootDir/src/main/assets/app/").eachFileRecurse(groovy.io.FileType.FILES) {
-    //        if(it.name.equals('')) {
-    //            println it
-                //apply from: it
-    //        }
-    //}
-    
-
-
-
-    //println encrypt.output
-    
-    //println file('.')
-    //println projectDir
-    
-    //String jarsDir = "-PjarsDir=$rootDir/metadata/libs" //re-make to use intermediates folder
-    //String jsCodeToParse = "-PjsCodeDir=$rootDir/src/main/assets/app"
-    //String outDir = "-PoutDir=../../src/main/java"
-    //def stdout = new ByteArrayOutputStream()
-    //def stderr = new ByteArrayOutputStream()
-    /*
-    exec {
-        //commandLine "cmd" , "/c", "echo", "hello"
-        commandLine "node", "../../node_modules/nativescript-app-protection/encrypt-file.js", "2qt79iJwR6kqlGVsZi4ZeXRdEIHVtG1VMU3UyNTPcJk=" , "c:\\Work\\nativescript-hack\\testAndroidM\\platforms\\android\\src\\main\\assets\\app\\main-view-model.js",  "c:\\Work\\nativescript-hack\\testAndroidM\\platforms\\android\\src\\main\\assets\\app\\main-view-model.js" 
-
-        //standardOutput = stdout
-        //errorOutput = stderr
-    }
-    
-    exec {
-        //commandLine "cmd" , "/c", "echo", "hello"
-        commandLine "node", "../../node_modules/nativescript-app-protection/encrypt-file.js", "2qt79iJwR6kqlGVsZi4ZeXRdEIHVtG1VMU3UyNTPcJk=" , "c:\\Work\\nativescript-hack\\testAndroidM\\platforms\\android\\src\\main\\assets\\app\\main-page.js",  "c:\\Work\\nativescript-hack\\testAndroidM\\platforms\\android\\src\\main\\assets\\app\\main-page.js" 
-
-        //standardOutput = stdout
-        //errorOutput = stderr
-    }
-    */
-    
-    //if (stdout.size() != 0) {
-    //    println "Encrypt Output:\n$stdout";
-    //}
-    
-    //if (stderr.size() != 0) {
-    //    println "Encrypt Error:\n$stderr";
-    //}
-    
-    //task encrypt (type: Exec) {
-            //workingDir "$rootDir/build-tools/android-static-binding-generator"
-            
-            //println 'encrypt task started'
-            //commandLine "cmd", "/c", "node", "--version" 
-           // commandLine 'cmd', '/c', 'echo', 'hello'
-            
-            //standardOutput = new ByteArrayOutputStream()
-            //errorOutput    = new ByteArrayOutputStream()
-            
-            // if(isWinOs) {
-            //   println "encrypting file"
-            //   //commandLine "cmd", "/c", "node", "$rootDir\\encrypt-file.js", "2qt79iJwR6kqlGVsZi4ZeXRdEIHVtG1VMU3UyNTPcJk=" , "c:\\Work\\nativescript-hack\\testAndroidM\\platforms\\android\\src\\main\\assets\\app\\app.js", //"c:\\Work\\nativescript-hack\\testAndroidM\\platforms\\android\\src\\main\\assets\\app\\app.enc.js" 
-            // }
-            // else {
-            //   //commandLine "gradle", "generatebindings", jarsDir, jsCodeToParse, outDir
-            //   println "App protection include started. Non windows Build is not implemented"
-            // }
-            
-            //ext.output = {
-                //aa = standardOutput..toString()
-                //println "aa captured"
-                //return standardOutput.toString()
-            ///}
-            
-            
-            //doLast {
-            //     println "encrypted"
-            // }
-      
-    //}
 }
 
 task generateEncryptionKey << {
@@ -111,13 +32,6 @@ task saveEncryptionKey << {
 	
 	String contents = new File("$rootDir/src/main/res/values/strings.xml").getText("UTF-8");
     
-	//response.value.books.book[0].replaceNode{ 
-    //   book(id:"3"){
-    //       title("To Kill a Mockingbird")
-    //       author(id:"3","Harper Lee")
-    //   }
-   //}
-   
     if (contents.contains("<string name=\"encryptionKey\">"))
     {
        contents = contents.replaceFirst("(?si)<string name=['\"]encryptionKey['\"]?[^>]*>.*?</string>", "<string name=\"encryptionKey\">" + encryptionKey + "</string>")
@@ -127,12 +41,11 @@ task saveEncryptionKey << {
         contents = contents.replaceFirst("</resources>", "<string name=\"encryptionKey\">" + encryptionKey + "</string>\n</resources>");
     }
     
-    //contents = contents.replaceFirst("</resources>", "<string name=\"encryptionKey\">" + encryptionKey + "</string></resources>");
 	new File("$rootDir/src/main/res/values/strings.xml").write(contents, "UTF-8");
 }
 
 
-//appProtectionInclude.onlyIf { project.hasProperty('release') }
+appProtectionInclude.onlyIf { project.hasProperty('release') }
 
 saveEncryptionKey.dependsOn generateEncryptionKey
 appProtectionInclude.dependsOn generateEncryptionKey

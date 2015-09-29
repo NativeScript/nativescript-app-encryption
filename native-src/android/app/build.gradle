@@ -36,13 +36,5 @@ task copyRuntime (type: Copy)  {
     rename "classes.jar", "app-protection.jar"
 }
 
-//task listRunTimeFiles {
-//
-//    new File("$rootDir/app/build/intermediates/bundles/$buildType").eachFile() { file->
-//        println file.getName()
-//    }
-//}
-
-
 assembleDebug.finalizedBy copyRuntime
 
