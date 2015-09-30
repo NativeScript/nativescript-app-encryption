@@ -1,3 +1,5 @@
+A plugin that encrypts all code files in your app
+
 # Usage
 
 ## Android
@@ -9,6 +11,8 @@ appProtectionInclude.onlyIf { project.hasProperty('release') }
 
 
 # Details
+
+
 
 ### `generate-aes256-key.js`
 Generates a 256-bit Base64-encoded AES key 
