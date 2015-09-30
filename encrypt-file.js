@@ -10,5 +10,5 @@ var cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
 var input = fs.readFileSync(process.argv[3]);
 var encrypted = Buffer.concat([cipher.update(input), cipher.final()]);
 
-var output = util.format("eval(require('app-protection').decrypt('%s', '%s'))", encrypted.toString("base64"), iv.toString("base64"));
+var output = util.format("var decrypted = require('nativescript-app-protection').decrypt('%s', '%s'); eval(decrypted);", encrypted.toString("base64"), iv.toString("base64"));
 fs.writeFileSync(process.argv[4], output);
