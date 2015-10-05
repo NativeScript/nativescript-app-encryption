@@ -8,7 +8,15 @@ To test the plugin in debug comment out the following line in include.gradle
 
 appProtectionInclude.onlyIf { project.hasProperty('release') }
 
+## iOS
+Add the plugin and append the following lines to `platforms/ios/internal/nativescript-post-build`:
+```
+pushd "$SRCROOT/../../node_modules/nativescript-app-protection"
+./nativescript-post-build
+popd
+```
 
+Should you wish to remove the plugin, you will need to delete your `build` folder in order to clean up any encrypted build intermediates.
 
 # Details
 

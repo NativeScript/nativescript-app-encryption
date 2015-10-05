@@ -9,7 +9,7 @@
   "license": "Telerik",
   "nativescript": {
     "platforms": {
-      "ios": "1.0.0",
+      "ios": "1.4.0",
       "android": "1.0.0"
     }
   }

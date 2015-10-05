@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $CONFIGURATION == "Release" ]]; then
+    KEY=$(node "${BASH_SOURCE%/*}"/generate-aes256-key.js)
+    plutil -replace TNSAppProtectionKey -data $KEY "$CONFIGURATION_BUILD_DIR/$INFOPLIST_PATH"
+    
+    APP_FOLDER="$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/app"
+    FILES=$(find "$APP_FOLDER" -not \( -path "$APP_FOLDER/tns_modules" -prune \) -name '*.js' -type f)
+    for f in $FILES
+    do
+        node "${BASH_SOURCE%/*}"/encrypt-file.js $KEY "${f/$APP_FOLDER/$PROJECT_DIR/$PROJECT_NAME/app}" "$f"
+    done
+fi

@@ -1,0 +1,256 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		851017831BBEE1BA0016B8CF /* TNSAppProtection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 851017821BBEE1BA0016B8CF /* TNSAppProtection.h */; };
+		851017851BBEE1BA0016B8CF /* TNSAppProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 851017841BBEE1BA0016B8CF /* TNSAppProtection.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8510177D1BBEE1BA0016B8CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				851017831BBEE1BA0016B8CF /* TNSAppProtection.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8510177F1BBEE1BA0016B8CF /* AppProtection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = AppProtection.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		851017821BBEE1BA0016B8CF /* TNSAppProtection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNSAppProtection.h; sourceTree = "<group>"; };
+		851017841BBEE1BA0016B8CF /* TNSAppProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNSAppProtection.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8510177C1BBEE1BA0016B8CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		851017761BBEE1BA0016B8CF = {
+			isa = PBXGroup;
+			children = (
+				851017811BBEE1BA0016B8CF /* AppProtection */,
+				851017801BBEE1BA0016B8CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		851017801BBEE1BA0016B8CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8510177F1BBEE1BA0016B8CF /* AppProtection.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		851017811BBEE1BA0016B8CF /* AppProtection */ = {
+			isa = PBXGroup;
+			children = (
+				851017821BBEE1BA0016B8CF /* TNSAppProtection.h */,
+				851017841BBEE1BA0016B8CF /* TNSAppProtection.m */,
+			);
+			path = AppProtection;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8510177E1BBEE1BA0016B8CF /* AppProtection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 851017881BBEE1BA0016B8CF /* Build configuration list for PBXNativeTarget "AppProtection" */;
+			buildPhases = (
+				8510177B1BBEE1BA0016B8CF /* Sources */,
+				8510177C1BBEE1BA0016B8CF /* Frameworks */,
+				8510177D1BBEE1BA0016B8CF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppProtection;
+			productName = AppProtection;
+			productReference = 8510177F1BBEE1BA0016B8CF /* AppProtection.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		851017771BBEE1BA0016B8CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Telerik;
+				TargetAttributes = {
+					8510177E1BBEE1BA0016B8CF = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 8510177A1BBEE1BA0016B8CF /* Build configuration list for PBXProject "AppProtection" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 851017761BBEE1BA0016B8CF;
+			productRefGroup = 851017801BBEE1BA0016B8CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8510177E1BBEE1BA0016B8CF /* AppProtection */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8510177B1BBEE1BA0016B8CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				851017851BBEE1BA0016B8CF /* TNSAppProtection.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		851017861BBEE1BA0016B8CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		851017871BBEE1BA0016B8CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		851017891BBEE1BA0016B8CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8510178A1BBEE1BA0016B8CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8510177A1BBEE1BA0016B8CF /* Build configuration list for PBXProject "AppProtection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				851017861BBEE1BA0016B8CF /* Debug */,
+				851017871BBEE1BA0016B8CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		851017881BBEE1BA0016B8CF /* Build configuration list for PBXNativeTarget "AppProtection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				851017891BBEE1BA0016B8CF /* Debug */,
+				8510178A1BBEE1BA0016B8CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 851017771BBEE1BA0016B8CF /* Project object */;
+}
