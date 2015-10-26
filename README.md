@@ -8,6 +8,10 @@ To test the plugin in debug comment out the following line in include.gradle
 
 appProtectionInclude.onlyIf { project.hasProperty('release') }
 
+The include.gradle support requires this pull to work correctly. https://github.com/NativeScript/android-runtime/pull/234
+Make sure you got this for the plugin to work on build.
+
+
 ## iOS
 Add the plugin and append the following lines to `platforms/ios/internal/nativescript-post-build`:
 ```
