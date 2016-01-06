@@ -8,8 +8,7 @@ exports.decrypt = function decrypt(encryptedBase64, ivBase64) {
     try {
         decrypted = protector.decryptIvError(encrypted, iv);
     } catch (e) {
-        console.error(e);
-        throw new ModuleError(`Could not decrypt ${module.id}`);
+        throw new Error(`Could not decrypt ${module.id}: ${e.message}`);
     }
     
     return NSString.alloc()
