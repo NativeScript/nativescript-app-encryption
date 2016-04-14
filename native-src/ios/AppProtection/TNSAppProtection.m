@@ -9,20 +9,17 @@
 #import "TNSAppProtection.h"
 #import <CommonCrypto/CommonCrypto.h>
 
-@implementation TNSAppProtection {
-    NSData *_key;
+@implementation TNSAppProtection
+
+static NSData *_key;
+
+- (void) setKey:(NSData *)key {
+  _key = [key copy];
 }
 
 - (instancetype)init {
-    return [self initWithKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"TNSAppProtectionKey"]];
-}
-
-- (instancetype)initWithKey:(NSData *)key {
-    if (self = [super init]) {
-        self->_key = [key copy];
-    }
-
-    return self;
+  self = [super init];
+  return self;
 }
 
 - (NSData *)decrypt:(NSData *)payload iv:(NSData *)iv error:(NSError **)error{
@@ -32,7 +29,7 @@
     NSMutableData *decrypted = [NSMutableData dataWithLength:payload.length];
 
     size_t decryptedBytes = 0;
-    CCCryptorStatus status = CCCrypt(kCCDecrypt, kCCAlgorithmAES128, 0, self->_key.bytes, self->_key.length, iv.bytes, payload.bytes, payload.length, decrypted.mutableBytes, decrypted.length, &decryptedBytes);
+    CCCryptorStatus status = CCCrypt(kCCDecrypt, kCCAlgorithmAES128, 0, _key.bytes, _key.length, iv.bytes, payload.bytes, payload.length, decrypted.mutableBytes, decrypted.length, &decryptedBytes);
     if (status != kCCSuccess && error) {
         *error = [NSError errorWithDomain:@"TNSAppProtectionErrorDomain" code:status userInfo:nil];
         return nil;

@@ -1,16 +1,19 @@
-{ 
-  "name" : "nativescript-app-protection",
-  "version": "0.0.1",
-  "main" : "app-protection.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/NativeScript/app-protection.git"
-  },
-  "license": "Telerik",
-  "nativescript": {
-    "platforms": {
-      "ios": "1.4.0",
-      "android": "1.0.0"
-    }
+{
+	"name": "nativescript-app-protection",
+	"version": "0.1.0",
+	"main": "app-protection.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NativeScript/app-protection.git"
+	},
+	"license": "Telerik",
+	"nativescript": {
+		"platforms": {
+			"ios": "1.4.0",
+			"android": "1.0.0"
+		}
+	},
+  "scripts": {
+    "postinstall": "node scripts/install-buildsteps.js"
   }
 }

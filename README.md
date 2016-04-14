@@ -13,23 +13,20 @@ Make sure you got this for the plugin to work on build.
 
 
 ## iOS
-Add the plugin and append the following lines to `platforms/ios/internal/nativescript-post-build`:
-```
-pushd "$SRCROOT/../../node_modules/nativescript-app-protection"
-./nativescript-post-build
-popd
-```
+No additional steps required; just `tns build ios --release` and your .js files will be encrypted in the `.ipa` binary.
 
 Should you wish to remove the plugin, you will need to delete your `build` folder in order to clean up any encrypted build intermediates.
 
 # Details
-This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build. The key is embedded in `res/values/strings.xml` on Android and in `Info.plist` on iOS. The key storage is subject to change. Encryption is only applied for Release builds.
+This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build. The key is embedded in `res/values/strings.xml` on Android and in native code on iOS. The key storage on Android is subject to change.
+
+Encryption is only applied for Release builds.
 
 Decryption is transparently performed the first time a file is `require`d and the result is only cached in-memory.
 
 ### `generate-aes256-key.js`
-Generates a 256-bit Base64-encoded AES key 
+Generates a 256-bit Base64-encoded AES key during a release build.
 
 ### `encrypt-file.js`
-Encrypts a file with AES256.
+Encrypts a file with AES256 (you don't need to do this yourself).
 Usage: `encrypt-file.js <base64-encoded key> <input file path> <output file path>`

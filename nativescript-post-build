@@ -1,13 +1,21 @@
 #!/bin/bash
 
 if [[ $CONFIGURATION == "Release" ]]; then
-    KEY=$(node "${BASH_SOURCE%/*}"/generate-aes256-key.js)
-    plutil -replace TNSAppProtectionKey -data $KEY "$CONFIGURATION_BUILD_DIR/$INFOPLIST_PATH"
-    
+    # read the key from the file we saved it to in the pre-build script
+    KEY=`cat key.txt`
+
+    # encrypt the app's .js files
     APP_FOLDER="$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/app"
     FILES=$(find "$APP_FOLDER" -not \( -path "$APP_FOLDER/tns_modules" -prune \) -name '*.js' -type f)
     for f in $FILES
     do
         node "${BASH_SOURCE%/*}"/encrypt-file.js $KEY "${f/$APP_FOLDER/$PROJECT_DIR/$PROJECT_NAME/app}" "$f"
     done
+
+    # set back our main.m backup and remove the second backup
+    mv $SRCROOT/internal/main.m.bak $SRCROOT/internal/main.m
+    rm $SRCROOT/internal/main.m.bak2
+
+    # we no longer need the key file
+    rm key.txt
 fi

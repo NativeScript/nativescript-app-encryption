@@ -45,7 +45,7 @@ task saveEncryptionKey << {
 }
 
 
-appProtectionInclude.onlyIf { project.hasProperty('release') }
+//appProtectionInclude.onlyIf { project.hasProperty('release') }
 
 saveEncryptionKey.dependsOn generateEncryptionKey
 appProtectionInclude.dependsOn generateEncryptionKey

@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TNSAppProtection : NSObject
 
-- (instancetype)init;
+- (void) setKey:(NSData *)key;
 
-- (instancetype)initWithKey:(NSData *)key NS_DESIGNATED_INITIALIZER;
+- (instancetype)init;
 
 - (nullable NSData *)decrypt:(NSData *)payload iv:(NSData *)iv error:(NSError **)error;
 
