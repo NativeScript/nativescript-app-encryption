@@ -2,10 +2,12 @@ A plugin that encrypts all code files in your app
 
 # Usage
 
-Install the platforms you need for your app (`tns platform add ios`) before isntalling this plugin.
+Install the platforms you need for your app (`tns platform add [ios|android]`) before installing this plugin.
 
 ## iOS
-No additional steps required; just `tns build ios --release` and your .js files will be encrypted in the `.ipa` binary.
+No additional steps required; just `tns build ios --release` and your `.js` files will be encrypted in the `.ipa` binary.
+
+You can validate this on a Mac by right-clicking the `.ipa` and inspecting the package contents.
 
 ## Android (work in progress)
 Add the plugin to your project and build in release.
