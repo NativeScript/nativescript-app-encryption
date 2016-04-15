@@ -16,6 +16,8 @@ To test the plugin in debug comment out the following line in include.gradle
 
 `appProtectionInclude.onlyIf { project.hasProperty('release') }`
 
+TODO a note about proguard/dexguard - recommended config
+
 # Details
 This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build. The key is embedded in `res/values/strings.xml` on Android and in native code on iOS. The key storage on Android is subject to change.
 
