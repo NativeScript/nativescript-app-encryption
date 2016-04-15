@@ -1,4 +1,4 @@
-A plugin that encrypts all code files in your app
+This plugin encrypts all your `app/**.js` files during a release build.
 
 # Usage
 
