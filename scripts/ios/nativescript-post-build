@@ -9,7 +9,7 @@ if [[ $CONFIGURATION == "Release" ]]; then
     FILES=$(find "$APP_FOLDER" -not \( -path "$APP_FOLDER/tns_modules" -prune \) -name '*.js' -type f)
     for f in $FILES
     do
-        node "${BASH_SOURCE%/*}"/encrypt-file.js $KEY "${f/$APP_FOLDER/$PROJECT_DIR/$PROJECT_NAME/app}" "$f"
+        node "${BASH_SOURCE%/*}"/../encrypt-file.js $KEY "${f/$APP_FOLDER/$PROJECT_DIR/$PROJECT_NAME/app}" "$f"
     done
 
     # set back our main.m backup and remove the second backup

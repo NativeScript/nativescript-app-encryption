@@ -1,3 +1,9 @@
+println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!inclgradle!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+
 def isWinOs = System.properties['os.name'].toLowerCase().contains('windows') ;  
 def encryptionKey;
 
@@ -44,7 +50,7 @@ task saveEncryptionKey << {
 	new File("$rootDir/src/main/res/values/strings.xml").write(contents, "UTF-8");
 }
 
-
+// TODO uncomment this
 //appProtectionInclude.onlyIf { project.hasProperty('release') }
 
 saveEncryptionKey.dependsOn generateEncryptionKey

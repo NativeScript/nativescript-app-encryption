@@ -2,17 +2,17 @@ A plugin that encrypts all code files in your app
 
 # Usage
 
+Install the platforms you need for your app (`tns platform add ios`) before isntalling this plugin.
+
 ## iOS
 No additional steps required; just `tns build ios --release` and your .js files will be encrypted in the `.ipa` binary.
 
 ## Android (work in progress)
 Add the plugin to your project and build in release.
+
 To test the plugin in debug comment out the following line in include.gradle
 
-appProtectionInclude.onlyIf { project.hasProperty('release') }
-
-The include.gradle support requires this pull to work correctly. https://github.com/NativeScript/android-runtime/pull/234
-Make sure you got this for the plugin to work on build.
+`appProtectionInclude.onlyIf { project.hasProperty('release') }`
 
 # Details
 This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build. The key is embedded in `res/values/strings.xml` on Android and in native code on iOS. The key storage on Android is subject to change.

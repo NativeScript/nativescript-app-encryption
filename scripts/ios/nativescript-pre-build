@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $CONFIGURATION == "Release" ]]; then
-    KEY=$(node "${BASH_SOURCE%/*}"/generate-aes256-key.js)
+    KEY=$(node "${BASH_SOURCE%/*}"/../generate-aes256-key.js)
 
     # save the key in a file because we need it in the post-build script as well
     echo $KEY > key.txt
