@@ -1,7 +1,7 @@
 def isWinOs = System.properties['os.name'].toLowerCase().contains('windows') ;  
 def encryptionKey;
 
-task appProtectionInclude (dependsOn: "copyMetadata")  << {
+task appProtectionInclude (dependsOn: "generateDebugAssets")  << {
 
     println "App protection include started"  
        
@@ -45,13 +45,21 @@ task saveEncryptionKey << {
 }
 
 // apply the plugin only for release build
-appProtectionInclude.onlyIf { project.hasProperty('release') }
+//appProtectionInclude.onlyIf { project.hasProperty('release') }
 
 saveEncryptionKey.dependsOn generateEncryptionKey
 appProtectionInclude.dependsOn generateEncryptionKey
 
-appProtectionInclude.mustRunAfter copyMetadata
+appProtectionInclude.mustRunAfter "generateDebugAssets"
 
 appProtectionInclude.finalizedBy saveEncryptionKey
 
-copyMetadata.finalizedBy appProtectionInclude
+pluginExtend.finalizedBy appProtectionInclude 
+
+tasks.whenTaskAdded { task ->
+    if (task.getName() == "generateDebugAssets")
+    {
+        println "Patching collectAllJars task"
+        task.finalizedBy appProtectionInclude 
+    } 
+}
