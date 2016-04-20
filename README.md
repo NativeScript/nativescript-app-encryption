@@ -2,14 +2,14 @@ This plugin encrypts all your `app/**.js` files during a release build.
 
 # Usage
 
-Install the platforms you need for your app (`tns platform add [ios|android]`) before installing this plugin.
+Install the platforms you need for your app before installing this plugin: `tns platform add [ios|android]`
 
 ## iOS
 No additional steps required; just `tns build ios --release` and your `.js` files will be encrypted in the `.ipa` binary.
 
 You can validate this on a Mac by right-clicking the `.ipa` and inspecting the package contents.
 
-## Android (work in progress)
+## Android
 No additional steps required; just `tns build android --release` and your `.js` files will be encrypted in the `.apk` binary.
 
 To test the plugin in debug comment out the following line in `platforms/android/include.gradle`
