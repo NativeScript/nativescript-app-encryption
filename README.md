@@ -10,16 +10,18 @@ No additional steps required; just `tns build ios --release` and your `.js` file
 You can validate this on a Mac by right-clicking the `.ipa` and inspecting the package contents.
 
 ## Android (work in progress)
-Add the plugin to your project and build in release.
+No additional steps required; just `tns build android --release` and your `.js` files will be encrypted in the `.apk` binary.
 
-To test the plugin in debug comment out the following line in include.gradle
+To test the plugin in debug comment out the following line in `platforms/android/include.gradle`
 
 `appProtectionInclude.onlyIf { project.hasProperty('release') }`
 
-TODO a note about proguard/dexguard - recommended config
+### Additional protection
+[Use Proguard or Dexguard](http://proguard.sourceforge.net/FAQ.html#encrypt) to obfuscate or encrypt strings in native files so the encryption key is hidden even more deeply. 
 
 # Details
-This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build. The key is embedded in `res/values/strings.xml` on Android and in native code on iOS. The key storage on Android is subject to change.
+This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build.
+The key is embedded in native code.
 
 Encryption is only applied for Release builds.
 

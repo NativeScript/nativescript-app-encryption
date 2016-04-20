@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-// add a pre-build step
+// add a pre-build step for iOS
 fs.appendFile(
   '../../platforms/ios/internal/nativescript-pre-build',
   '\npushd "$SRCROOT/../../node_modules/nativescript-app-protection/scripts/ios"\n./nativescript-pre-build\npopd\n',
@@ -13,7 +13,7 @@ fs.appendFile(
   }
 );
 
-// add a post-build step
+// add a post-build step for iOS
 fs.appendFile(
   '../../platforms/ios/internal/nativescript-post-build',
   '\npushd "$SRCROOT/../../node_modules/nativescript-app-protection/scripts/ios"\n./nativescript-post-build\npopd\n',

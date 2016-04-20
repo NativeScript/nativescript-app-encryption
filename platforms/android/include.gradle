@@ -30,22 +30,26 @@ task generateEncryptionKey << {
 
 task saveEncryptionKey << {
 	
-	String contents = new File("$rootDir/src/main/res/values/strings.xml").getText("UTF-8");
+    String javaFileName = "$rootDir/src/main/java/com/tns/NativeScriptApplication.java";
+    String contents = new File(javaFileName).getText("UTF-8");
     
-    if (contents.contains("<string name=\"encryptionKey\">"))
+    String protectionKeySetter = "com.tns.app_protection.AppProtection.setKey";
+    String addThis = protectionKeySetter + "(\"" + encryptionKey + "\");";
+
+    if (contents.contains(protectionKeySetter))
     {
-       contents = contents.replaceFirst("(?si)<string name=['\"]encryptionKey['\"]?[^>]*>.*?</string>", "<string name=\"encryptionKey\">" + encryptionKey + "</string>")
+       contents = contents.replaceFirst(protectionKeySetter + ".*", addThis)
     }
     else
     {
-        contents = contents.replaceFirst("</resources>", "<string name=\"encryptionKey\">" + encryptionKey + "</string>\n</resources>");
+        contents = contents.replaceFirst(/public void onCreate\(\) \{/, "public void onCreate() {\n\t\t" + addThis);
     }
     
-	new File("$rootDir/src/main/res/values/strings.xml").write(contents, "UTF-8");
+	new File(javaFileName).write(contents, "UTF-8");
 }
 
-// apply the plugin only for release build
-//appProtectionInclude.onlyIf { project.hasProperty('release') }
+// apply the plugin only for release builds
+appProtectionInclude.onlyIf { project.hasProperty('release') }
 
 saveEncryptionKey.dependsOn generateEncryptionKey
 appProtectionInclude.dependsOn generateEncryptionKey

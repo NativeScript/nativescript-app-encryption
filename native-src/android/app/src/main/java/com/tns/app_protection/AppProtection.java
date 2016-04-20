@@ -4,35 +4,29 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import android.content.Context;
 import android.util.Base64;
-import android.util.Log;
 
-public class AppProtection
-{
-    public static String decrypt(String raw, String i, Context context) throws Exception
-    {
-        byte[] encryptedBytes = Base64.decode(raw, 0);
-        byte[] ivBytes = Base64.decode(i, 0);
-        IvParameterSpec iv = new IvParameterSpec(ivBytes);
+public class AppProtection {
 
-        int encryptionKeyId = context.getResources().getIdentifier("encryptionKey", "string", context.getPackageName());
-        Log.d("encryption-key-id", "Encryption key id is: " + encryptionKeyId + " iv:" + i);
-        String encryptionKeyText = context.getResources().getString(encryptionKeyId);
-        byte[] encryptionKey = Base64.decode(encryptionKeyText, 0);
+  private static String key;
 
-        byte[] decrypted = decrypt(encryptionKey, encryptedBytes, iv);
-        String source = new String(decrypted);
+  public static void setKey(String pKey) {
+    key = pKey;
+  }
 
-        return source;
-    }
+  public static String decrypt(String raw, String i) throws Exception {
+    byte[] encryptedBytes = Base64.decode(raw, 0);
+    byte[] ivBytes = Base64.decode(i, 0);
+    IvParameterSpec iv = new IvParameterSpec(ivBytes);
+    byte[] encryptionKey = Base64.decode(key, 0);
+    byte[] decrypted = decrypt(encryptionKey, encryptedBytes, iv);
+    return new String(decrypted);
+  }
 
-    private static byte[] decrypt(byte[] key, byte[] encryptedData, IvParameterSpec iv) throws Exception
-    {
-        SecretKeySpec skeySpec = new SecretKeySpec(key, "AES");
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
-        byte[] decrypted = cipher.doFinal(encryptedData);
-        return decrypted;
-    }
+  private static byte[] decrypt(byte[] key, byte[] encryptedData, IvParameterSpec iv) throws Exception {
+    SecretKeySpec skeySpec = new SecretKeySpec(key, "AES");
+    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+    cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
+    return cipher.doFinal(encryptedData);
+  }
 }
