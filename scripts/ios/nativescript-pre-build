@@ -12,5 +12,5 @@ if [[ $CONFIGURATION == "Release" ]]; then
     
     # change the header and save main.m to main.m.bak2 (so main.m.bak is still the real backup)
     sed -i '.bak2' 's#TNSInstallExceptionHandler();#TNSInstallExceptionHandler();\
-    [[TNSAppProtection alloc] setKey:[[NSData alloc] initWithBase64EncodedString:@"'$KEY'" options:0]];#g' $SRCROOT/internal/main.m    
+    [TNSAppProtection setKey:[[NSData alloc] initWithBase64EncodedString:@"'$KEY'" options:0]];#g' $SRCROOT/internal/main.m    
 fi

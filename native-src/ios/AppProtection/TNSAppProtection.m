@@ -13,13 +13,8 @@
 
 static NSData *_key;
 
-- (void) setKey:(NSData *)key {
++ (void) setKey:(NSData *)key {
   _key = [key copy];
-}
-
-- (instancetype)init {
-  self = [super init];
-  return self;
 }
 
 - (NSData *)decrypt:(NSData *)payload iv:(NSData *)iv error:(NSError **)error{
