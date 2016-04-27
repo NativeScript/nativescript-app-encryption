@@ -21,7 +21,7 @@ To test the plugin in debug comment out the following line in `platforms/android
 
 # Details
 This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build.
-The key is embedded in native code.
+On Android, the key is embedded in native code, on iOS - the key is kept in additional __DATA section in the app binary.
 
 Encryption is only applied for Release builds.
 

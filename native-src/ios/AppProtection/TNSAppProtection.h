@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TNSAppProtection : NSObject
 
-+ (void) setKey:(NSData *)key;
-
 - (nullable NSData *)decrypt:(NSData *)payload iv:(NSData *)iv error:(NSError **)error;
 
 @end
