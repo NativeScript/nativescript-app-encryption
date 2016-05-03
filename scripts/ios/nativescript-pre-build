@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [[ $CONFIGURATION == "Release" ]]; then
-	# generate key and save it in file
-    echo $(node "${BASH_SOURCE%/*}"/../generate-aes256-key.js) > k
-else
-	echo "" > k
-fi
