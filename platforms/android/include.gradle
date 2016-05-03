@@ -1,3 +1,11 @@
+android {
+    productFlavors {
+        "protect" {
+            dimension "protect"
+        }
+    }
+}
+
 def isWinOs = System.properties['os.name'].toLowerCase().contains('windows') ;  
 def encryptionKey;
 
