@@ -11,15 +11,14 @@
 
 @implementation TNSAppProtection
 
-static NSData *_key;
+extern char startOfKeySection __asm("section$start$__DATA$__bin_data");
 
-- (void) setKey:(NSData *)key {
-  _key = [key copy];
-}
-
-- (instancetype)init {
-  self = [super init];
-  return self;
+NSData *getKey() {
+    static NSData *_key;
+    if (!_key) {
+        _key = [[NSData alloc] initWithBase64EncodedString: [[NSString stringWithUTF8String: &startOfKeySection] substringToIndex: 44] options:0];
+    }
+    return _key;
 }
 
 - (NSData *)decrypt:(NSData *)payload iv:(NSData *)iv error:(NSError **)error{
@@ -29,7 +28,8 @@ static NSData *_key;
     NSMutableData *decrypted = [NSMutableData dataWithLength:payload.length];
 
     size_t decryptedBytes = 0;
-    CCCryptorStatus status = CCCrypt(kCCDecrypt, kCCAlgorithmAES128, 0, _key.bytes, _key.length, iv.bytes, payload.bytes, payload.length, decrypted.mutableBytes, decrypted.length, &decryptedBytes);
+    NSData *key = getKey();
+    CCCryptorStatus status = CCCrypt(kCCDecrypt, kCCAlgorithmAES128, 0, key.bytes, key.length, iv.bytes, payload.bytes, payload.length, decrypted.mutableBytes, decrypted.length, &decryptedBytes);
     if (status != kCCSuccess && error) {
         *error = [NSError errorWithDomain:@"TNSAppProtectionErrorDomain" code:status userInfo:nil];
         return nil;

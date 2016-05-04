@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $CONFIGURATION == "Release" ]]; then
+	# generate key and save it in a file
+    echo $(node "${BASH_SOURCE%/*}"/../../scripts/generate-aes256-key.js) > k
+else
+	# we always make key file and section in the binary because currently there is no way to make the sctcreate command to be executed only in release
+	echo "" > k
+fi
