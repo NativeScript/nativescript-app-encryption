@@ -24,6 +24,9 @@ module.exports = {
 };
 
 function findAndRemoveInFile(filePath, content) {
-    var newFileContent = fs.readFileSync(filePath).toString().replace(content, '');
-    fs.writeFileSync(filePath, newFileContent);
+    try {
+        var newFileContent = fs.readFileSync(filePath).toString().replace(content, '');
+        fs.writeFileSync(filePath, newFileContent);
+    }
+    catch(err) { return; }
 }
