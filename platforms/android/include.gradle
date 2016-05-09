@@ -9,7 +9,7 @@ android {
 def isWinOs = System.properties['os.name'].toLowerCase().contains('windows') ;  
 def encryptionKey;
 
-task appProtectionInclude (dependsOn: "generateDebugAssets")  << {
+task appProtectionInclude (dependsOn: "collectAllJars")  << {
 
     println "App protection include started"  
        
@@ -62,14 +62,14 @@ appProtectionInclude.onlyIf { project.hasProperty('release') }
 saveEncryptionKey.dependsOn generateEncryptionKey
 appProtectionInclude.dependsOn generateEncryptionKey
 
-appProtectionInclude.mustRunAfter "generateDebugAssets"
+appProtectionInclude.mustRunAfter "collectAllJars"
 
 appProtectionInclude.finalizedBy saveEncryptionKey
 
 pluginExtend.finalizedBy appProtectionInclude 
 
 tasks.whenTaskAdded { task ->
-    if (task.getName() == "generateDebugAssets")
+    if (task.getName() == "collectAllJars")
     {
         println "Patching collectAllJars task"
         task.finalizedBy appProtectionInclude 
