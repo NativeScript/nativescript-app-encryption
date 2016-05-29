@@ -38,7 +38,7 @@ task generateEncryptionKey << {
 
 task saveEncryptionKey << {
 	
-    String javaFileName = "$rootDir/src/main/java/com/tns/NativeScriptApplication.java";
+    String javaFileName = "$rootDir/src/main/java/com/tns/RuntimeHelper.java";
     String contents = new File(javaFileName).getText("UTF-8");
     
     String protectionKeySetter = "com.tns.app_protection.AppProtection.setKey";
@@ -46,18 +46,23 @@ task saveEncryptionKey << {
 
     if (contents.contains(protectionKeySetter))
     {
-       contents = contents.replaceFirst(protectionKeySetter + ".*", addThis)
+       println "replacing protection key";
+       contents = contents.replaceFirst(protectionKeySetter + ".*", addThis);
     }
     else
     {
-        contents = contents.replaceFirst(/public void onCreate\(\) \{/, "public void onCreate() {\n\t\t" + addThis);
+        println "setting new protection key";
+        contents = contents.replaceFirst(/System.loadLibrary\("NativeScript"\);/, "System.loadLibrary(\"NativeScript\");\n" + addThis);
+         
+        println contents;
     }
     
+    println "Writting java file: " + javaFileName;
 	new File(javaFileName).write(contents, "UTF-8");
 }
 
 // apply the plugin only for release builds
-appProtectionInclude.onlyIf { project.hasProperty('release') }
+//appProtectionInclude.onlyIf { project.hasProperty('release') }
 
 saveEncryptionKey.dependsOn generateEncryptionKey
 appProtectionInclude.dependsOn generateEncryptionKey
