@@ -1,3 +1,4 @@
 .idea
 xcuserdata/
 /native-src/ios/build
+/node_modules

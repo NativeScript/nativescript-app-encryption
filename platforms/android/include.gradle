@@ -19,7 +19,7 @@ task appProtectionInclude (dependsOn: "collectAllJars")  << {
         println "Encrypting file: " + file
         
         exec {
-            commandLine "node", "../../node_modules/nativescript-app-protection/scripts/encrypt-file.js", encryptionKey , file.getAbsolutePath(),  file.getAbsolutePath()
+            commandLine "node", "../../node_modules/nativescript-app-protection/scripts/encrypt-file.js", encryptionKey , file.getAbsolutePath()
         }
     } 
 }
