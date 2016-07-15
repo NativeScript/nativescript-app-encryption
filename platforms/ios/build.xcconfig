@@ -1,1 +1,1 @@
-OTHER_LDFLAGS = $(inherited) "-ObjC -sectcreate __DATA __bin_data \"$(PROJECT_DIR)/../../node_modules/nativescript-app-protection/hooks/ios/k\""
+OTHER_LDFLAGS[config=Release] = $(inherited) -ObjC -sectcreate __DATA __bin_data "$(PROJECT_DIR)/k"

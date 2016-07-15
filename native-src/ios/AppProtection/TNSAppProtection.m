@@ -13,7 +13,7 @@
 
 extern char startOfKeySection __asm("section$start$__DATA$__bin_data");
 
-NSData *getKey() {
+static NSData *getKey() {
     static NSData *_key;
     if (!_key) {
         _key = [[NSData alloc] initWithBase64EncodedString: [[NSString stringWithUTF8String: &startOfKeySection] substringToIndex: 44] options:0];

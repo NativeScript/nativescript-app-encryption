@@ -1,20 +1,32 @@
 {
-	"name": "nativescript-app-protection",
-	"version": "0.2.1",
-	"main": "app-protection.js",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/NativeScript/app-protection.git"
-	},
-	"license": "Telerik",
-	"nativescript": {
-		"platforms": {
-			"ios": "1.4.0",
-			"android": "1.0.0"
-		}
-	},
+  "name": "nativescript-app-protection",
+  "version": "0.2.1",
+  "main": "app-protection.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NativeScript/app-protection.git"
+  },
+  "license": "Telerik",
+  "nativescript": {
+    "platforms": {
+      "ios": "1.4.0",
+      "android": "1.0.0"
+    }
+  },
   "scripts": {
-    "postinstall": "node hooks/ios/postinstall.js",
-    "preuninstall": "node hooks/ios/preuninstall.js"
+    "postinstall": "node postinstall.js",
+    "preuninstall": "node preuninstall.js"
+  },
+  "nativescript": {
+    "hooks": [
+      {
+        "type": "after-prepare",
+        "script": "hooks/after-prepare.js",
+        "inject": true
+      }
+    ]
+  },
+  "dependencies": {
+    "nativescript-hook": "^0.2.1"
   }
 }
