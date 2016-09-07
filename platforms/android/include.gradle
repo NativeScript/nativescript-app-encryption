@@ -13,7 +13,7 @@ task appProtectionInclude (dependsOn: "collectAllJars")  << {
 
     println "App protection include started"  
        
-    FileTree tree = fileTree(dir: "$rootDir/src/main/assets/app", include: ["**/*.js"], exclude:  ["**/app.js", "tns_modules/**"])
+    FileTree tree = fileTree(dir: "$rootDir/src/main/assets/app", include: ["**/*.js"], exclude:  ["**/app.js", "tns_modules/**", "tns-java-classes.js"])
     tree.each { File file ->
         
         println "Encrypting file: " + file
