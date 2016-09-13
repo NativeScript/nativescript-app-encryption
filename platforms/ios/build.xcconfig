@@ -1,1 +1,1 @@
-OTHER_LDFLAGS[config=Release] = $(inherited) -ObjC -sectcreate __DATA __bin_data "$(PROJECT_DIR)/k"
+OTHER_LDFLAGS[config=Release] = ___app_protection_plugin_OTHER_LDFLAGS_placeholder___
