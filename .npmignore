@@ -1,2 +1,3 @@
 /native-src
-build-ios-native-lib.sh
+build.sh
+nativescript-app-protection-*.tgz

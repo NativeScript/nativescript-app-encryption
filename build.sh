@@ -1,4 +1,4 @@
-### Build iOS native library
+### Build and update iOS native library
 
 # build the iOS library both for emulator and device
 xcodebuild -project ./native-src/ios/AppProtection.xcodeproj -target AppProtection -sdk iphoneos -configuration Release ARCHS="armv7 arm64"
@@ -13,3 +13,8 @@ rm -f "$DESTIONATION_PATH/AppProtection.a"
 lipo -create "$XCODE_BUILD_PATH/Release-iphoneos/AppProtection.a" "$XCODE_BUILD_PATH/Release-iphonesimulator/AppProtection.a" -output "$DESTIONATION_PATH/AppProtection.a"
 # copy all headers
 cp -r "$XCODE_BUILD_PATH/Release-iphoneos/include" "$DESTIONATION_PATH/include"
+
+### TODO: Build and update Android native library
+
+### NPM pack
+npm pack
