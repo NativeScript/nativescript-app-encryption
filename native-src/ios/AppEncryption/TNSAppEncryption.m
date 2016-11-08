@@ -1,15 +1,15 @@
 //
-//  TNSAppProtection.m
-//  AppProtection
+//  TNSAppEncryption.m
+//  AppEncryption
 //
 //  Created by Yavor Georgiev on 2.10.15 г..
 //  Copyright © 2015 г. Telerik. All rights reserved.
 //
 
-#import "TNSAppProtection.h"
+#import "TNSAppEncryption.h"
 #import <CommonCrypto/CommonCrypto.h>
 
-@implementation TNSAppProtection
+@implementation TNSAppEncryption
 
 extern char startOfKeySection __asm("section$start$__DATA$__bin_data");
 
@@ -31,7 +31,7 @@ static NSData *getKey() {
     NSData *key = getKey();
     CCCryptorStatus status = CCCrypt(kCCDecrypt, kCCAlgorithmAES128, 0, key.bytes, key.length, iv.bytes, payload.bytes, payload.length, decrypted.mutableBytes, decrypted.length, &decryptedBytes);
     if (status != kCCSuccess && error) {
-        *error = [NSError errorWithDomain:@"TNSAppProtectionErrorDomain" code:status userInfo:nil];
+        *error = [NSError errorWithDomain:@"TNSAppEncryptionErrorDomain" code:status userInfo:nil];
         return nil;
     }
     assert(decryptedBytes == payload.length);

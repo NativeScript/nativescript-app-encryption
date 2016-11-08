@@ -1,6 +1,6 @@
 //
-//  TNSAppProtection.h
-//  AppProtection
+//  TNSAppEncryption.h
+//  AppEncryption
 //
 //  Created by Yavor Georgiev on 2.10.15 г..
 //  Copyright © 2015 г. Telerik. All rights reserved.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TNSAppProtection : NSObject
+@interface TNSAppEncryption : NSObject
 
 - (nullable NSData *)decrypt:(NSData *)payload iv:(NSData *)iv error:(NSError **)error;
 

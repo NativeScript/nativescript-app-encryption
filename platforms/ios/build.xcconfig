@@ -1,1 +1,1 @@
-OTHER_LDFLAGS[config=Release] = ___app_protection_plugin_OTHER_LDFLAGS_placeholder___
+OTHER_LDFLAGS[config=Release] = ___app_encryption_plugin_OTHER_LDFLAGS_placeholder___

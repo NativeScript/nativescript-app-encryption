@@ -9,9 +9,9 @@ android {
 def isWinOs = System.properties['os.name'].toLowerCase().contains('windows') ;  
 def encryptionKey;
 
-task appProtectionInclude (dependsOn: "collectAllJars")  << {
+task appEncryptionInclude (dependsOn: "collectAllJars")  << {
 
-    println "App protection include started"  
+    println "App encryption include started"  
        
     FileTree tree = fileTree(dir: "$rootDir/src/main/assets/app", include: ["**/*.js"], exclude:  ["**/app.js", "tns_modules/**", "tns-java-classes.js"])
     tree.each { File file ->
@@ -19,7 +19,7 @@ task appProtectionInclude (dependsOn: "collectAllJars")  << {
         println "Encrypting file: " + file
         
         exec {
-            commandLine "node", "../../node_modules/nativescript-app-protection/scripts/encrypt-file.js", encryptionKey , file.getAbsolutePath()
+            commandLine "node", "../../node_modules/nativescript-app-encryption/scripts/encrypt-file.js", encryptionKey , file.getAbsolutePath()
         }
     } 
 }
@@ -28,7 +28,7 @@ task generateEncryptionKey << {
     
     def stdout = new ByteArrayOutputStream()
     exec {
-        commandLine "node", "../../node_modules/nativescript-app-protection/scripts/generate-aes256-key.js"
+        commandLine "node", "../../node_modules/nativescript-app-encryption/scripts/generate-aes256-key.js"
         standardOutput = stdout
     }
         
@@ -46,12 +46,12 @@ task saveEncryptionKey << {
 
     if (contents.contains(protectionKeySetter))
     {
-       println "replacing protection key";
+       println "replacing encryption key";
        contents = contents.replaceFirst(protectionKeySetter + ".*", addThis);
     }
     else
     {
-        println "setting new protection key";
+        println "setting new encryption key";
         contents = contents.replaceFirst(/System.loadLibrary\("NativeScript"\);/, "System.loadLibrary(\"NativeScript\");\n" + addThis);
          
         println contents;
@@ -62,16 +62,16 @@ task saveEncryptionKey << {
 }
 
 // apply the plugin only for release builds
-appProtectionInclude.onlyIf { project.hasProperty('release') }
+appEncryptionInclude.onlyIf { project.hasProperty('release') }
 
 saveEncryptionKey.dependsOn generateEncryptionKey
-appProtectionInclude.dependsOn generateEncryptionKey
+appEncryptionInclude.dependsOn generateEncryptionKey
 
-appProtectionInclude.mustRunAfter "collectAllJars"
+appEncryptionInclude.mustRunAfter "collectAllJars"
 
-appProtectionInclude.finalizedBy saveEncryptionKey
+appEncryptionInclude.finalizedBy saveEncryptionKey
 
-pluginExtend.finalizedBy appProtectionInclude 
+pluginExtend.finalizedBy appEncryptionInclude 
 
 
 allprojects {
@@ -82,8 +82,8 @@ allprojects {
             {
                 println " Scheduling  encryption to run after " + task.name;
 
-                task.finalizedBy appProtectionInclude
-                appProtectionInclude.mustRunAfter task
+                task.finalizedBy appEncryptionInclude
+                appEncryptionInclude.mustRunAfter task
             } 
         });
     }

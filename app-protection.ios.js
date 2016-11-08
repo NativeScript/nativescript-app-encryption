@@ -1,4 +1,4 @@
-var protector = TNSAppProtection.alloc().init();
+var encryptor = TNSAppEncryption.alloc().init();
 
 exports.decrypt = function decrypt(encryptedBase64, ivBase64) {
     var encrypted = NSData.alloc().initWithBase64EncodedStringOptions(encryptedBase64, 0);
@@ -6,7 +6,7 @@ exports.decrypt = function decrypt(encryptedBase64, ivBase64) {
     
     var decrypted;
     try {
-        decrypted = protector.decryptIvError(encrypted, iv);
+        decrypted = encryptor.decryptIvError(encrypted, iv);
     } catch (e) {
         throw new Error(`Could not decrypt ${module.id}: ${e.message}`);
     }

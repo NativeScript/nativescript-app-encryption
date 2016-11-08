@@ -2,6 +2,6 @@
 xcuserdata/
 /native-src/ios/build
 /node_modules
-/platforms/ios/AppProtection.a
+/platforms/ios/AppEncryption.a
 /platforms/ios/include
-nativescript-app-protection-*.tgz
+nativescript-app-encryption-*.tgz

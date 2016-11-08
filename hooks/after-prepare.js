@@ -25,10 +25,10 @@ module.exports = function($logger, $projectData, $usbLiveSyncService, hookArgs) 
 
     /* 
      * Inject the plugin specific linker flags in plugin-release.xcconfig file. This is needed because relying on the CLI mechanism for
-     * merging .xcconfig files results in reordering of the linker flags (see https://github.com/NativeScript/app-protection/issues/8).
+     * merging .xcconfig files results in reordering of the linker flags.
      */
     var pluginReleaseFile = path.join(platformData.projectRoot, 'plugins-release.xcconfig');
-    var placeholder = /___app_protection_plugin_OTHER_LDFLAGS_placeholder___/g;
+    var placeholder = /___app_encryption_plugin_OTHER_LDFLAGS_placeholder___/g;
     var linkerFlags = '$(inherited) -ObjC -sectcreate __DATA __bin_data $(PROJECT_DIR)/k';
     fs.readFile(pluginReleaseFile, 'utf8', function (err, fileContent) {
         var newFileContent = fileContent.replace(placeholder, linkerFlags);

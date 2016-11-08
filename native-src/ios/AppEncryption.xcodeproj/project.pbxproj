@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		851017831BBEE1BA0016B8CF /* TNSAppProtection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 851017821BBEE1BA0016B8CF /* TNSAppProtection.h */; };
-		851017851BBEE1BA0016B8CF /* TNSAppProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 851017841BBEE1BA0016B8CF /* TNSAppProtection.m */; };
+		851017831BBEE1BA0016B8CF /* TNSAppEncryption.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 851017821BBEE1BA0016B8CF /* TNSAppEncryption.h */; };
+		851017851BBEE1BA0016B8CF /* TNSAppEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 851017841BBEE1BA0016B8CF /* TNSAppEncryption.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,16 +18,16 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				851017831BBEE1BA0016B8CF /* TNSAppProtection.h in CopyFiles */,
+				851017831BBEE1BA0016B8CF /* TNSAppEncryption.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8510177F1BBEE1BA0016B8CF /* AppProtection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = AppProtection.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		851017821BBEE1BA0016B8CF /* TNSAppProtection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNSAppProtection.h; sourceTree = "<group>"; };
-		851017841BBEE1BA0016B8CF /* TNSAppProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNSAppProtection.m; sourceTree = "<group>"; };
+		8510177F1BBEE1BA0016B8CF /* AppEncryption.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = AppEncryption.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		851017821BBEE1BA0016B8CF /* TNSAppEncryption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNSAppEncryption.h; sourceTree = "<group>"; };
+		851017841BBEE1BA0016B8CF /* TNSAppEncryption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNSAppEncryption.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,7 @@
 		851017761BBEE1BA0016B8CF = {
 			isa = PBXGroup;
 			children = (
-				851017811BBEE1BA0016B8CF /* AppProtection */,
+				851017811BBEE1BA0016B8CF /* AppEncryption */,
 				851017801BBEE1BA0016B8CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,26 +52,26 @@
 		851017801BBEE1BA0016B8CF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8510177F1BBEE1BA0016B8CF /* AppProtection.a */,
+				8510177F1BBEE1BA0016B8CF /* AppEncryption.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		851017811BBEE1BA0016B8CF /* AppProtection */ = {
+		851017811BBEE1BA0016B8CF /* AppEncryption */ = {
 			isa = PBXGroup;
 			children = (
-				851017821BBEE1BA0016B8CF /* TNSAppProtection.h */,
-				851017841BBEE1BA0016B8CF /* TNSAppProtection.m */,
+				851017821BBEE1BA0016B8CF /* TNSAppEncryption.h */,
+				851017841BBEE1BA0016B8CF /* TNSAppEncryption.m */,
 			);
-			path = AppProtection;
+			path = AppEncryption;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8510177E1BBEE1BA0016B8CF /* AppProtection */ = {
+		8510177E1BBEE1BA0016B8CF /* AppEncryption */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 851017881BBEE1BA0016B8CF /* Build configuration list for PBXNativeTarget "AppProtection" */;
+			buildConfigurationList = 851017881BBEE1BA0016B8CF /* Build configuration list for PBXNativeTarget "AppEncryption" */;
 			buildPhases = (
 				8510177B1BBEE1BA0016B8CF /* Sources */,
 				8510177C1BBEE1BA0016B8CF /* Frameworks */,
@@ -81,9 +81,9 @@
 			);
 			dependencies = (
 			);
-			name = AppProtection;
+			name = AppEncryption;
 			productName = AppProtection;
-			productReference = 8510177F1BBEE1BA0016B8CF /* AppProtection.a */;
+			productReference = 8510177F1BBEE1BA0016B8CF /* AppEncryption.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8510177A1BBEE1BA0016B8CF /* Build configuration list for PBXProject "AppProtection" */;
+			buildConfigurationList = 8510177A1BBEE1BA0016B8CF /* Build configuration list for PBXProject "AppEncryption" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8510177E1BBEE1BA0016B8CF /* AppProtection */,
+				8510177E1BBEE1BA0016B8CF /* AppEncryption */,
 			);
 		};
 /* End PBXProject section */
@@ -122,7 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				851017851BBEE1BA0016B8CF /* TNSAppProtection.m in Sources */,
+				851017851BBEE1BA0016B8CF /* TNSAppEncryption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +233,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8510177A1BBEE1BA0016B8CF /* Build configuration list for PBXProject "AppProtection" */ = {
+		8510177A1BBEE1BA0016B8CF /* Build configuration list for PBXProject "AppEncryption" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				851017861BBEE1BA0016B8CF /* Debug */,
@@ -242,7 +242,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		851017881BBEE1BA0016B8CF /* Build configuration list for PBXNativeTarget "AppProtection" */ = {
+		851017881BBEE1BA0016B8CF /* Build configuration list for PBXNativeTarget "AppEncryption" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				851017891BBEE1BA0016B8CF /* Debug */,

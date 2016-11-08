@@ -18,7 +18,7 @@ function encryptFile(keyString, filePath) {
     var input = fs.readFileSync(filePath);
     var encrypted = Buffer.concat([cipher.update(input), cipher.final()]);
 
-    var output = util.format("eval(require('nativescript-app-protection').decrypt('%s', '%s'));", encrypted.toString("base64"), iv.toString("base64"));
+    var output = util.format("eval(require('nativescript-app-encryption').decrypt('%s', '%s'));", encrypted.toString("base64"), iv.toString("base64"));
     
     return new Promise(function(res, rej) {
         fs.writeFile(filePath, output, function(err) {
