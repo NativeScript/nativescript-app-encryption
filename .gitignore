@@ -4,4 +4,5 @@ xcuserdata/
 /node_modules
 /platforms/ios/AppEncryption.a
 /platforms/ios/include
+/platforms/android/libs/app-protection.jar
 nativescript-app-encryption-*.tgz

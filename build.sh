@@ -14,7 +14,9 @@ lipo -create "$XCODE_BUILD_PATH/Release-iphoneos/AppEncryption.a" "$XCODE_BUILD_
 # copy all headers
 cp -r "$XCODE_BUILD_PATH/Release-iphoneos/include" "$DESTIONATION_PATH/include"
 
-### TODO: Build and update Android native library
+pushd native-src/android/
+./gradlew assembleDebug
+popd
 
 ### NPM pack
 npm pack
