@@ -1,5 +1,7 @@
 This plugin encrypts all your `app/**.js` files during a release build.
 
+*The plugins is still in experimental state and we need your feedback. Please write your comments in the issues.*
+
 # Usage
 
 Install the platforms you need for your app before installing this plugin: `tns platform add [ios|android]`
