@@ -1,9 +1,23 @@
+**The plugins is still in experimental state and we need your feedback. Please write your comments in the issues.**
+
 This plugin encrypts all your `app/**.js` files during a release build.
 
-*The plugins is still in experimental state and we need your feedback. Please write your comments in the issues.*
+# How it works
+This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build.
+On Android, the key is embedded in native code, on iOS - the key is kept in additional __DATA section in the app binary.
+
+Encryption is only applied for Release builds.
+
+Decryption is transparently performed the first time a file is `require`d and the result is only cached in-memory.
+
+### `generate-aes256-key.js`
+Generates a 256-bit Base64-encoded AES key during a release build.
+
+### `encrypt-file.js`
+Encrypts a file with AES256 (you don't need to do this yourself).
+Usage: `encrypt-file.js <base64-encoded key> <input file path> <output file path>`
 
 # Usage
-
 Install the platforms you need for your app before installing this plugin: `tns platform add [ios|android]`
 
 ## iOS
@@ -21,17 +35,4 @@ To test the plugin in debug comment out the following line in `platforms/android
 ### Additional protection
 [Use Proguard or Dexguard](http://proguard.sourceforge.net/FAQ.html#encrypt) to obfuscate or encrypt strings in native files so the encryption key is hidden even more deeply. 
 
-# Details
-This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build.
-On Android, the key is embedded in native code, on iOS - the key is kept in additional __DATA section in the app binary.
 
-Encryption is only applied for Release builds.
-
-Decryption is transparently performed the first time a file is `require`d and the result is only cached in-memory.
-
-### `generate-aes256-key.js`
-Generates a 256-bit Base64-encoded AES key during a release build.
-
-### `encrypt-file.js`
-Encrypts a file with AES256 (you don't need to do this yourself).
-Usage: `encrypt-file.js <base64-encoded key> <input file path> <output file path>`
