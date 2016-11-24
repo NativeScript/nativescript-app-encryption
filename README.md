@@ -6,7 +6,7 @@ This plugin encrypts all your `app/**.js` files during a release build.
 This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build.
 On Android, the key is embedded in native code, on iOS - the key is kept in additional __DATA section in the app binary.
 
-*For the future we are thinking about enhacing the way the encryption key is used. We need your input here. For the moment the plugin is responsible for storing and retrieving the key, but we are open for another suggestions how to improve this.* See https://github.com/NativeScript/nativescript-app-encryption/issues/1.
+*For the future we are thinking about enhacing the way the encryption key is used. We need your input here. For the moment the plugin is responsible for storing and retrieving the key, but we are open for another suggestions how to improve this.* See [#1](https://github.com/NativeScript/nativescript-app-encryption/issues/1).
 
 Encryption is only applied for Release builds.
 
@@ -37,4 +37,5 @@ To test the plugin in debug comment out the following line in `platforms/android
 ### Additional protection
 [Use Proguard or Dexguard](http://proguard.sourceforge.net/FAQ.html#encrypt) to obfuscate or encrypt strings in native files so the encryption key is hidden even more deeply. 
 
-
+### Further reading
+Encryption do not guarantee 100% protection. Any sensitive/critical logic should be kept on the server. Please read this blog post for more details - [How secure is NativeSCript?](https://www.nativescript.org/blog/how-secure-is-nativescript).
