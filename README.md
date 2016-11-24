@@ -6,6 +6,8 @@ This plugin encrypts all your `app/**.js` files during a release build.
 This plugins encrypts all `.js` files in the `app` folder, except those under `tns_modules` with an AES256 key generated each build.
 On Android, the key is embedded in native code, on iOS - the key is kept in additional __DATA section in the app binary.
 
+*For the future we are thinking about enhacing the way the key is stored. We need your input here. We get the key from your server, but this will require that the application is online the first time it is executed. We are open for another suggestions how to improve this.*
+
 Encryption is only applied for Release builds.
 
 Decryption is transparently performed the first time a file is `require`d and the result is only cached in-memory.
