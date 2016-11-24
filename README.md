@@ -38,4 +38,7 @@ To test the plugin in debug comment out the following line in `platforms/android
 [Use Proguard or Dexguard](http://proguard.sourceforge.net/FAQ.html#encrypt) to obfuscate or encrypt strings in native files so the encryption key is hidden even more deeply. 
 
 ### Further reading
-Encryption do not guarantee 100% protection. Any sensitive/critical logic should be kept on the server. Please read this blog post for more details - [How secure is NativeSCript?](https://www.nativescript.org/blog/how-secure-is-nativescript).
+Encryption do not guarantee 100% protection. Any sensitive/critical logic should be kept on the server. Please read this blog post for more details - [How secure is NativeScript?](https://www.nativescript.org/blog/how-secure-is-nativescript).
+
+### Next steps
+with our 2.5 release we will also enable code obfuscation for the code as part of our integration with WebPack.
