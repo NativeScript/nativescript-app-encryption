@@ -8,6 +8,7 @@
 
 #import "TNSAppEncryption.h"
 #import <CommonCrypto/CommonCrypto.h>
+#include <string>
 
 @implementation TNSAppEncryption
 
@@ -16,7 +17,7 @@ extern char startOfKeySection __asm("section$start$__DATA$__bin_data");
 static NSData *getKey() {
     static NSData *_key;
     if (!_key) {
-        _key = [[NSData alloc] initWithBase64EncodedString: [[NSString stringWithUTF8String: &startOfKeySection] substringToIndex: 44] options:0];
+        _key = [[NSData alloc] initWithBase64EncodedString: [NSString stringWithUTF8String: std::string(&startOfKeySection, 44).c_str()] options:0];
     }
     return _key;
 }

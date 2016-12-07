@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		851017831BBEE1BA0016B8CF /* TNSAppEncryption.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 851017821BBEE1BA0016B8CF /* TNSAppEncryption.h */; };
-		851017851BBEE1BA0016B8CF /* TNSAppEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 851017841BBEE1BA0016B8CF /* TNSAppEncryption.m */; };
+		851017851BBEE1BA0016B8CF /* TNSAppEncryption.mm in Sources */ = {isa = PBXBuildFile; fileRef = 851017841BBEE1BA0016B8CF /* TNSAppEncryption.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		8510177F1BBEE1BA0016B8CF /* AppEncryption.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = AppEncryption.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		851017821BBEE1BA0016B8CF /* TNSAppEncryption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNSAppEncryption.h; sourceTree = "<group>"; };
-		851017841BBEE1BA0016B8CF /* TNSAppEncryption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNSAppEncryption.m; sourceTree = "<group>"; };
+		851017841BBEE1BA0016B8CF /* TNSAppEncryption.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TNSAppEncryption.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				851017821BBEE1BA0016B8CF /* TNSAppEncryption.h */,
-				851017841BBEE1BA0016B8CF /* TNSAppEncryption.m */,
+				851017841BBEE1BA0016B8CF /* TNSAppEncryption.mm */,
 			);
 			path = AppEncryption;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				851017851BBEE1BA0016B8CF /* TNSAppEncryption.m in Sources */,
+				851017851BBEE1BA0016B8CF /* TNSAppEncryption.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

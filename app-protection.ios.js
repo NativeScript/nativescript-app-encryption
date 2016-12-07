@@ -13,6 +13,6 @@ exports.decrypt = function decrypt(encryptedBase64, ivBase64) {
     
     return NSString.alloc()
                    .initWithDataEncoding(decrypted, NSUTF8StringEncoding)
-                   .stringByTrimmingCharactersInSet(NSCharacterSet.controlCharacterSet())
+                   .stringByTrimmingCharactersInSet(NSCharacterSet.controlCharacterSet)
                    .toString();
 };
