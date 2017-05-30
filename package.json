@@ -1,6 +1,6 @@
 {
   "name": "nativescript-app-encryption",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "app-protection.js",
   "repository": {
     "type": "git",
@@ -18,13 +18,11 @@
     "preuninstall": "node preuninstall.js"
   },
   "nativescript": {
-    "hooks": [
-      {
-        "type": "after-prepare",
-        "script": "hooks/after-prepare.js",
-        "inject": true
-      }
-    ]
+    "hooks": [{
+      "type": "after-prepare",
+      "script": "hooks/after-prepare.js",
+      "inject": true
+    }]
   },
   "dependencies": {
     "nativescript-hook": "^0.2.1"
