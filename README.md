@@ -1,4 +1,5 @@
-**The plugins is still in experimental state and we need your feedback. Please write your comments in the issues.**
+__ATTENTION: This repository is deprecated. Use [Webpack with uglify](https://docs.nativescript.org/tooling/bundling-with-webpack#uglifyjs) as an encryption alternative.__
+
 
 This plugin encrypts all of your `app/**.js` files during a release build.
 
